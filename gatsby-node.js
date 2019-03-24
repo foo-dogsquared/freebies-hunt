@@ -5,35 +5,32 @@
  */
 
 // You can delete this file if you're not using it
-const { data, schema } = require("freebies-hunt-api");
+const { categorizedData, categorizedDataSchema } = require("freebies-hunt-api");
 const jaysonDB = require("jayson-db");
 const {kebabCase} = require("./src/scripts");
 
-const categorySet = new Set();
-
-for (const item in data) {
-    categorySet.add(data[item].type);
-}
-
-const freebiesDB = new jaysonDB("freebies", {data, schema});
+const categorySet = new Set(Object.keys(categorizedData));
 
 exports.createPages = ({ actions: { createPage }}) => {
     // let's create the freebies index page
     createPage({
         path: '/',
         component: require.resolve("./src/pages/categories.js"),
-        context: { categories: Array.from(categorySet) }
+        context: { categories: categorizedData }
     })
 
     // individual freebies category
-    categorySet.forEach(category => {
+    let index = 0;
+    for (const category in categorizedData) {
         createPage({
             path: `/${kebabCase(category)}`,
             component: require.resolve("./src/pages/category.js"),
             context: {
-                category, 
-                items: freebiesDB.read(item => item.type === category), 
+                name: category,
+                category: categorizedData[category],
+                nextCategory: categorySet[index + 1],
+                previousCategory: categorySet[index - 1],
             }
         })
-    })
+    }
 }
