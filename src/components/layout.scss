@@ -486,9 +486,7 @@ hr {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: calc(1.45rem - 1px);
-  background: hsla(0, 0%, 0%, 0.2);
-  border: none;
-  height: 1px;
+  height: 5px;
 }
 address {
   margin-left: 0;
@@ -635,6 +633,11 @@ main {
     padding-left: 2em;
     padding-right: 2em;
   }
+}
+
+.about {
+  margin: 2em auto;
+  text-align: center;
 }
 
 .elliptical-border {
