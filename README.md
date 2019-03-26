@@ -25,7 +25,7 @@ This is built with [Gatsby](http://gatsbyjs.org/) (and by extension, [React](htt
 
 Also, this serves as a production use case for my [JSON database management system](https://github.com/foo-dogsquared/jayson-db) and it uses the [Freebies Hunt API](https://github.com/foo-dogsquared/freebies-hunt-api) which it's available as an [npm package](https://www.npmjs.com/package/freebies-hunt-api). So at least take a closer look at those to get a bigger picture on how the site is built. I'll put up a semi-detailed documentation on it soon but for now, [take a look on how the API was built](https://github.com/foo-dogsquared/freebies-hunt-api/blob/master/docs/getting-started.md).
 
-## Additional notes
+## Additional notes 
 The logo is made by me with [Figma](http://figma.com/) (hey, one of my recommendations in the list 😉). ~~Also, gRaPhIcS dEsIgN iS mY PaSsiOn nOw~~
 
 This project is under [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/).
