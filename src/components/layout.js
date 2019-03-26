@@ -24,9 +24,12 @@ const Layout = ({ children, color }) => (
       query SiteTitleQuery {
         site {
           siteMetadata {
-            title,
-            author,
+            title
             mainSite
+            author {
+              name
+              alias
+            }
           }
         }
       }
@@ -47,7 +50,7 @@ const Layout = ({ children, color }) => (
             <main>{children}</main>
             <section className="about">
               <p>
-                Freebies Hunt is a resource list gathered by <a href={data.site.siteMetadata.mainSite} target="_blank" rel="noopener noreferrer">@{data.site.siteMetadata.author}</a> after having a stroke with open content enthusiasm.
+                Freebies Hunt is a resource list gathered by <a href={data.site.siteMetadata.mainSite} target="_blank" rel="noopener noreferrer">@{data.site.siteMetadata.author.alias}</a> after having a stroke with open content enthusiasm.
                 This'll help you in finding quality free (and open source) resources to get started doing on your projects (or learnings).
               </p>
               <p>
@@ -61,12 +64,10 @@ const Layout = ({ children, color }) => (
             <UserLinks />
             <footer>
               <div>
-                © {new Date().getFullYear()}, Built with
-                {` `}
-                <a href="https://www.gatsbyjs.org">Gatsby</a>
+                Built with <span role="img" aria-label="">💙</span> by <a href={data.site.siteMetadata.mainSite}>{data.site.siteMetadata.author.name}</a>, I think.
               </div>
               <div>
-                Also built with <span role="img" aria-label="">💙</span> by <a href={data.site.siteMetadata.mainSite}>me</a>, I think.
+                © {new Date().getFullYear()} Licensed with <a href={config.license.link}>{config.license.name}</a>
               </div>
             </footer>
           </div>

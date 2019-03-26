@@ -6,7 +6,7 @@ import "./userLinks.scss"
 
 const userLinks = ({ userLinks }) => (
   <address>
-    <h3>Greet the maker through the following links:</h3>
+    <h3>Want to see more of my projects?</h3>
     <section className="social-links">
       {Object.entries(userLinks).map(userLink => {
         const name = userLink[0];
