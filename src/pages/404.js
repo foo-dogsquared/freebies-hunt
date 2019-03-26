@@ -8,7 +8,7 @@ import _404 from "../images/404.png"
 const NotFoundPage = () => (
   <Layout>
     <SEO title="404: Not found" />
-    <img src={_404} />
+    <img src={_404} alt="404"/>
   </Layout>
 )
 
