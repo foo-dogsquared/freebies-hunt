@@ -7,30 +7,38 @@
 // You can delete this file if you're not using it
 const { categorizedData, categorizedDataSchema } = require("freebies-hunt-api");
 const jaysonDB = require("jayson-db");
-const {kebabCase} = require("./src/scripts");
+const { kebabCase } = require("./src/scripts");
 
 const categorySet = new Set(Object.keys(categorizedData));
+exports.createPages = ({ actions: { createPage } }) => {
+  // let's create the freebies index page
+  createPage({
+    path: '/',
+    component: require.resolve("./src/pages/categories.js"),
+    context: { categories: categorizedData }
+  })
 
-exports.createPages = ({ actions: { createPage }}) => {
-    // let's create the freebies index page
-    createPage({
-        path: '/',
-        component: require.resolve("./src/pages/categories.js"),
-        context: { categories: categorizedData }
-    })
+  // individual freebies category
+  for (const category in categorizedData) {
+    let recommendedCategories = {};
+    const categories = Array.from(categorySet);
+    while (Object.keys(recommendedCategories).length <= 2) {
+      const randomizedCategory = categories[Math.floor(Math.random() * categories.length)];
 
-    // individual freebies category
-    let index = 0;
-    for (const category in categorizedData) {
-        createPage({
-            path: `/${kebabCase(category)}`,
-            component: require.resolve("./src/pages/category.js"),
-            context: {
-                name: category,
-                category: categorizedData[category],
-                nextCategory: categorySet[index + 1],
-                previousCategory: categorySet[index - 1],
-            }
-        })
+      if (randomizedCategory === category) continue;
+
+      recommendedCategories[randomizedCategory] = categorizedData[randomizedCategory];
     }
+
+    createPage({
+      path: `/${kebabCase(category)}`,
+      component: require.resolve("./src/pages/category.js"),
+      context: {
+        name: category,
+        category: categorizedData[category],
+        categorySet: Array.from(categorySet),
+        recommendedCategories
+      }
+    })
+  }
 }

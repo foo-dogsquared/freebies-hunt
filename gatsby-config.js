@@ -1,14 +1,25 @@
+const config = require("./src/config");
+
 module.exports = {
   siteMetadata: {
-    title: `Freebies Hunt`,
-    description: `It's a personal list of digital freebies that can be found on the web.`,
-    author: `@foo-dogsquared`,
-    gitHubLink: `https://github.com/foo-dogsquared/`
+    title: config.title,
+    description: config.description,
+    author: config.author,
+    socialLinks: config.socialLinks,
+    mainSite: `https://foo-dogsquared.github.io`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     'gatsby-plugin-svg-sprite',
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: config.googleAnalyticsId,
+        head: true,
+        anonymize: true,
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
