@@ -1,0 +1,29 @@
+address {
+    text-align: center;
+
+    h3 {margin: 0;}
+
+    &::before {
+        border-top: 3px double currentColor;
+        content: '';
+        display: block;
+        margin-bottom: 2em;
+    }
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a.social-link {
+    padding: 1em;
+    margin: 1em;
+
+    svg {
+        $size: 2em;
+        height: $size; 
+        width: $size;
+    }
+}

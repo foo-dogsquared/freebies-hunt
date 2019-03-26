@@ -5,35 +5,40 @@
  */
 
 // You can delete this file if you're not using it
-const { data, schema } = require("freebies-hunt-api");
+const { categorizedData, categorizedDataSchema } = require("freebies-hunt-api");
 const jaysonDB = require("jayson-db");
-const {kebabCase} = require("./src/scripts");
+const { kebabCase } = require("./src/scripts");
 
-const categorySet = new Set();
+const categorySet = new Set(Object.keys(categorizedData));
+exports.createPages = ({ actions: { createPage } }) => {
+  // let's create the freebies index page
+  createPage({
+    path: '/',
+    component: require.resolve("./src/pages/categories.js"),
+    context: { categories: categorizedData }
+  })
 
-for (const item in data) {
-    categorySet.add(data[item].type);
-}
+  // individual freebies category
+  for (const category in categorizedData) {
+    let recommendedCategories = {};
+    const categories = Array.from(categorySet);
+    while (Object.keys(recommendedCategories).length <= 2) {
+      const randomizedCategory = categories[Math.floor(Math.random() * categories.length)];
 
-const freebiesDB = new jaysonDB("freebies", {data, schema});
+      if (randomizedCategory === category) continue;
 
-exports.createPages = ({ actions: { createPage }}) => {
-    // let's create the freebies index page
+      recommendedCategories[randomizedCategory] = categorizedData[randomizedCategory];
+    }
+
     createPage({
-        path: '/',
-        component: require.resolve("./src/pages/categories.js"),
-        context: { categories: Array.from(categorySet) }
+      path: `/${kebabCase(category)}`,
+      component: require.resolve("./src/pages/category.js"),
+      context: {
+        name: category,
+        category: categorizedData[category],
+        categorySet: Array.from(categorySet),
+        recommendedCategories
+      }
     })
-
-    // individual freebies category
-    categorySet.forEach(category => {
-        createPage({
-            path: `/${kebabCase(category)}`,
-            component: require.resolve("./src/pages/category.js"),
-            context: {
-                category, 
-                items: freebiesDB.read(item => item.type === category), 
-            }
-        })
-    })
+  }
 }
