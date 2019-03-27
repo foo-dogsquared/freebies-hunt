@@ -1,0 +1,33 @@
+$border-style: currentColor 2px solid;
+
+.category-link {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    height: 100%;
+}
+
+.category-card {
+    min-height: 2em;
+    width: 250px;
+    margin: 1.5em auto;
+    text-align: center;
+    border: $border-style;
+
+    svg.category-icon {
+        $size: 6em;
+        height: $size;
+        width: $size;
+    }
+
+    .description {
+        color: black;
+        min-height: 2em;
+        height: auto;
+        vertical-align: middle;
+        padding: 1em;
+        background: whitesmoke;
+        flex: 1 0 auto;
+        border-top: $border-style;
+    }
+}
