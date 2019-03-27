@@ -4,8 +4,7 @@
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "dependencies": {
-    "core-js": "^3.0.0",
+    "core-js": "^2.6.5",
     "freebies-hunt-api": "^1.2.1",
     "gatsby": "^2.2.5",
     "gatsby-image": "^2.0.34",
