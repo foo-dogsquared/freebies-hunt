@@ -1,19 +1,28 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { Link } from 'gatsby';
+import SEO from '../components/seo'
+import Layout from '../components/layout';
+import Icon from "../components/icon";
 import CategoryGrid from "../components/categoryGrid"
-import CategoryIcon from "../components/categoryIcon"
-import marked from "marked"
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-
-import "./category.scss"
+import marked from "marked";
 import { kebabCase } from "../scripts"
 
-const SecondPage = ({ pageContext: { name, category, categorySet, recommendedCategories } }) => (
-  <Layout color={category.main_color}>
-    <SEO title={name} />
-    <CategoryIcon type={ category.icon_name }/>
+import "./category.scss";
+
+export default ({ pageContext: { name, category, categories } }) => {
+  const recommendedCategories = {};
+  const categorySet = Object.keys(categories);
+  while (Object.keys(recommendedCategories).length <= 2) {
+    const randomCategory = categorySet[Math.floor(Math.random() * categorySet.length)];
+    if (randomCategory === name) continue;
+
+    recommendedCategories[randomCategory] = categories[randomCategory];
+  }
+
+  return (
+  <Layout color={ category.main_color }>
+    <SEO title={name} keywords={[ category.icon_name, name ]}/>
+    <Icon file="category-icons" name={ category.icon_name }/>
     <section className="category-info">
       <h1>{ name }</h1>
       <p dangerouslySetInnerHTML={{__html: marked(category.description)}}></p>
@@ -31,11 +40,13 @@ const SecondPage = ({ pageContext: { name, category, categorySet, recommendedCat
           personalComment = <small className="personal-comment" dangerouslySetInnerHTML={{__html: marked(item.personal_rating)}}></small>
         }
 
-        return <li className="freebie-item" key={item.name}>
-          <h2><a href={item.link} target="_blank" rel="noopener noreferrer" dangerouslySetInnerHTML={{__html: marked(item.name)}}></a></h2>
-          {description}
-          {personalComment}
-        </li>
+        return (
+          <li className="freebie-item" key={item.name}>
+            <h2><a href={item.link} target="_blank" rel="noopener noreferrer" dangerouslySetInnerHTML={{__html: marked(item.name)}}></a></h2>
+            {description}
+            {personalComment}
+          </li>
+        )
       })}
     </ul>
 
@@ -55,6 +66,5 @@ const SecondPage = ({ pageContext: { name, category, categorySet, recommendedCat
       </section>
     </details>
   </Layout>
-)
-
-export default SecondPage
+  )
+}
