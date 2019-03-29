@@ -6,16 +6,14 @@ import Logo from "../images/freebies-hunt-logo.svg"
 
 import "./header.scss"
 
-const Header = ({ siteTitle }) => (
-  <header>
+const Header = ({ siteTitle }) => {
+  return (<header>
     <Link to="/" className="header-link">
-      <svg>
-        <use xlinkHref={`#${Logo.id}`}></use>
-      </svg>
+      <Logo />
       <h1 style={{ margin: 0 }}>{siteTitle}</h1>
     </Link>
-  </header>
-)
+  </header>)
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

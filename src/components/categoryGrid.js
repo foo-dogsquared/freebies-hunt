@@ -5,9 +5,8 @@ import "./categoryGrid.scss"
 
 const categoryGrid = ({ categories }) => (
   <section className="categories-grid">
-    {Object.entries(categories).map((entry) => {
-      const name = entry[0];
-      const category = entry[1];
+    {Object.keys(categories).map((name, keyIndex) => {
+      const category = categories[name];
       return <CategoryCard key={name} name={name} mainColor={category.main_color} iconName={category.icon_name} />
     })}
   </section>

@@ -1,6 +1,7 @@
 import React from "react"
+import Icon from "./icon"
+
 import config from "../config"
-import SocialIcon from "./socialIcon"
 
 import "./userLinks.scss"
 
@@ -12,7 +13,7 @@ const userLinks = ({ userLinks }) => (
         const name = userLink[0];
         const link = userLink[1];
 
-        return <a className="social-link" key={name} href={link} target="_blank" rel="noopener noreferrer"><SocialIcon name={name}/></a>
+        return <a className="social-link" key={name} href={link} target="_blank" rel="noopener noreferrer"><Icon file="social-icons" name={name} /></a>
       })}
     </section>
   </address>

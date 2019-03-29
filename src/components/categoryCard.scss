@@ -14,10 +14,9 @@ $border-style: currentColor 2px solid;
     text-align: center;
     border: $border-style;
 
-    svg.category-icon {
-        $size: 6em;
+    .category-icon {
+        $size: 7em;
         height: $size;
-        width: $size;
     }
 
     .description {
