@@ -1,44 +1,48 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const freebiesHuntApi = require("freebies-hunt-api");
+const { kebabCase } = require("./src/scripts")
 
-// You can delete this file if you're not using it
-const { categorizedData, categorizedDataSchema } = require("freebies-hunt-api");
-const jaysonDB = require("jayson-db");
-const { kebabCase } = require("./src/scripts");
+exports.createPages = async ({ actions: { createPage } }) => {
+  const { categorizedData } = freebiesHuntApi;
+  const categorySet = Object.keys(categorizedData);
 
-const categorySet = new Set(Object.keys(categorizedData));
-exports.createPages = ({ actions: { createPage } }) => {
-  // let's create the freebies index page
   createPage({
     path: '/',
-    component: require.resolve("./src/pages/categories.js"),
-    context: { categories: categorizedData }
+    component: require.resolve("./src/templates/categories.js"),
+    context: {
+      categories: categorizedData
+    }
   })
 
-  // individual freebies category
   for (const category in categorizedData) {
-    let recommendedCategories = {};
-    const categories = Array.from(categorySet);
-    while (Object.keys(recommendedCategories).length <= 2) {
-      const randomizedCategory = categories[Math.floor(Math.random() * categories.length)];
+    const categoryObject = categorizedData[category];
+    const recommendCategories = {};
 
-      if (randomizedCategory === category) continue;
+    while (Object.keys(recommendCategories).length <= 2) {
+      const randomCategory = categorySet[Math.floor(Math.random() * categorySet.length)];
+      if (randomCategory === category) continue;
 
-      recommendedCategories[randomizedCategory] = categorizedData[randomizedCategory];
+      recommendCategories[randomCategory] = categorizedData[randomCategory];
     }
 
     createPage({
       path: `/${kebabCase(category)}`,
-      component: require.resolve("./src/pages/category.js"),
+      component: require.resolve("./src/templates/category.js"),
       context: {
+        category: categoryObject,
         name: category,
-        category: categorizedData[category],
-        categorySet: Array.from(categorySet),
-        recommendedCategories
+        categories: categorizedData,
       }
     })
   }
+};
+
+// adding some webpack configuration
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    node: {
+      fs: 'empty',
+      path: true,
+      __dirname: true
+    }
+  })
 }
