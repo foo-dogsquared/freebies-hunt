@@ -1,52 +1,29 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Gabriel Arazas <foo.dogsquared@gmail.com>",
-  "dependencies": {
-    "core-js": "^2.6.5",
-    "freebies-hunt-api": "^1.2.1",
-    "gatsby": "^2.2.5",
-    "gatsby-image": "^2.0.34",
-    "gatsby-plugin-google-analytics": "^2.0.17",
-    "gatsby-plugin-manifest": "^2.0.24",
-    "gatsby-plugin-offline": "^2.0.25",
-    "gatsby-plugin-react-helmet": "^3.0.10",
-    "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-plugin-sharp": "^2.0.31",
-    "gatsby-plugin-svg-sprite": "^2.0.1",
-    "gatsby-source-filesystem": "^2.0.27",
-    "gatsby-transformer-sharp": "^2.1.17",
-    "jayson-db": "^0.2.1",
-    "marked": "^0.6.1",
-    "node-sass": "4.11.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-helmet": "^5.2.0",
-    "tinycolor2": "^1.4.1"
-  },
-  "devDependencies": {
-    "prettier": "^1.16.4"
-  },
-  "keywords": [
-    "gatsby"
-  ],
+  "name": "gatsby-source-plugin-workshop",
+  "description": "Workshop source for a source plugin workshop",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "svg:build": "node ./src/iconExtract.js",
+    "develop": "npm run svg:build && gatsby develop",
+    "build": "npm run svg:build && gatsby build --prefix-paths",
+    "serve": "gatsby serve"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  "dependencies": {
+    "freebies-hunt-api": "^1.2.1",
+    "gatsby": "^2.0.0",
+    "gatsby-plugin-manifest": "^2.0.26",
+    "gatsby-plugin-react-helmet": "^3.0.11",
+    "gatsby-plugin-react-svg": "^2.1.1",
+    "gatsby-plugin-sass": "^2.0.11",
+    "marked": "0.6.1",
+    "node-sass": "^4.11.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-helmet": "^5.2.0",
+    "svg-sprite": "^1.5.0",
+    "tinycolor2": "^1.4.1"
   },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jason Lengstorf <jason@gatsbyjs.com>"
 }
