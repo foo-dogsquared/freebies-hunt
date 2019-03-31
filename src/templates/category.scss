@@ -5,12 +5,16 @@
 }
 
 .freebie-item {
-    padding: 2em;
-    border: solid currentColor 3px;
-    margin: 1em auto;
     background: white;
-    color: black;
     border-radius: 5px;
+    border: solid currentColor 3px;
+    color: black;
+    line-height: 2em;
+    margin: 1em auto;
+    padding: 2em;
+    text-align: center;
+
+    details, summary {display: block;}
 }
 
 .personal-comment {

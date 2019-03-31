@@ -12,7 +12,10 @@ module.exports = {
       email: `mailto:foo.dogsquared@gmail.com`
     },
     repoLink: `https://github.com/foo-dogsquared/freebies-hunt`,
-    apiRepoLink: `https://github.com/foo-dogsquared/freebies-hunt-api`,
+    api: {
+      link: `https://www.npmjs.com/package/freebies-hunt-api`,
+      repo: `https://github.com/foo-dogsquared/freebies-hunt-api`,
+    },
     license: {
       name: "GNU General Public License v3.0",
       link: "https://choosealicense.com/licenses/gpl-3.0/"
