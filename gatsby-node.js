@@ -3,7 +3,6 @@ const { kebabCase } = require("./src/scripts")
 
 exports.createPages = async ({ actions: { createPage } }) => {
   const { categorizedData } = freebiesHuntApi;
-  const categorySet = Object.keys(categorizedData);
 
   createPage({
     path: '/',
@@ -15,14 +14,6 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   for (const category in categorizedData) {
     const categoryObject = categorizedData[category];
-    const recommendCategories = {};
-
-    while (Object.keys(recommendCategories).length <= 2) {
-      const randomCategory = categorySet[Math.floor(Math.random() * categorySet.length)];
-      if (randomCategory === category) continue;
-
-      recommendCategories[randomCategory] = categorizedData[randomCategory];
-    }
 
     createPage({
       path: `/${kebabCase(category)}`,

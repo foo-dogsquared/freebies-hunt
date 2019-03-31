@@ -28,4 +28,6 @@ Also, this serves as a production use case for my [JSON database management syst
 ## Additional notes 
 The logo is made by me with [Figma](http://figma.com/) (hey, one of my recommendations in the list 😉). ~~Also, gRaPhIcS dEsIgN iS mY PaSsiOn nOw~~
 
+Additional icons used in the site belongs to [Freepik](https://www.freepik.com/).
+
 This project is under [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/).
