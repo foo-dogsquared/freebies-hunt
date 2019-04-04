@@ -9,7 +9,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "freebies-hunt-api": "^1.2.5",
+    "freebies-hunt-api": "^1.2.6",
     "gatsby": "^2.0.0",
     "gatsby-plugin-google-analytics": "2.0.18",
     "gatsby-plugin-manifest": "^2.0.26",
