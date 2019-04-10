@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-source-plugin-workshop",
-  "description": "Workshop source for a source plugin workshop",
+  "name": "freebies-hunt",
+  "description": "A website of free and open source resources.",
   "license": "MIT",
   "scripts": {
     "svg:build": "node ./src/iconExtract.js",
@@ -9,7 +9,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "freebies-hunt-api": "^1.2.6",
+    "freebies-hunt-api": "^1.2.7",
     "gatsby": "^2.0.0",
     "gatsby-plugin-google-analytics": "2.0.18",
     "gatsby-plugin-manifest": "^2.0.26",
