@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-source-plugin-workshop",
-  "description": "Workshop source for a source plugin workshop",
+  "name": "freebies-hunt",
+  "description": "A website of free and open source resources.",
   "license": "MIT",
   "scripts": {
     "svg:build": "node ./src/iconExtract.js",
