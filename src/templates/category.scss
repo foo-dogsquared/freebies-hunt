@@ -54,10 +54,11 @@
 
     section {
         background: white;
-        display: flex;
-        justify-content: space-evenly;
-        flex-flow: row wrap;
         border: 2px solid currentColor;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        text-align: center;
     
         & > * {margin: .5em;}
 

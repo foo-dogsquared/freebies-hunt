@@ -12,14 +12,14 @@ address {
 }
 
 .social-links {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 a.social-link {
-    padding: 1em;
     margin: 1em;
+    padding: 1em;
 
     svg {
         $size: 2em;
