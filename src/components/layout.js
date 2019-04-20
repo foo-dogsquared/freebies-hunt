@@ -18,6 +18,9 @@ import Footer from "./footer"
 import UserLinks from "./userLinks"
 import "./layout.scss"
 
+// import of image
+import ArrowUpLogo from "../images/arrow-up.svg"
+
 const Layout = ({ children, color }) => (
   <>
     <Header siteTitle={config.title} />
@@ -51,6 +54,7 @@ const Layout = ({ children, color }) => (
         <Footer />
       </div>
     </div>
+    <a class="go-to-top" href="#top"><ArrowUpLogo /></a>
   </>
 )
 
