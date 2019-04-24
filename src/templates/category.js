@@ -20,15 +20,15 @@ export default ({ pageContext: { name, category, categories } }) => {
   }
 
   return (
-  <Layout color={ category.main_color }>
-    <SEO title={name} keywords={[ category.icon_name, name ]}/>
-    <Icon file="category-icons" name={ category.icon_name }/>
+  <Layout color={ category.mainColor }>
+    <SEO title={name} keywords={[ category.iconName, name ]}/>
+    <Icon file="category-icons" name={ category.iconName }/>
     <section className="category-info">
       <h1>{ name }</h1>
       <p dangerouslySetInnerHTML={{__html: marked(category.description)}}></p>
     </section>
     <ul className="freebies">
-      {Object.values(category.children).map(item => {
+      {category.children.map(item => {
         let description = null;
         let personalComment = null;
 
@@ -52,7 +52,7 @@ export default ({ pageContext: { name, category, categories } }) => {
 
     <section className="other-categories">
       <h3>Some other categories:</h3>
-      <CategoryGrid categories={recommendedCategories} />
+      <CategoryGrid categories={Object.values(recommendedCategories)} />
     </section>
 
     <details className="categories-index">

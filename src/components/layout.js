@@ -54,7 +54,7 @@ const Layout = ({ children, color }) => (
         <Footer />
       </div>
     </div>
-    <a class="go-to-top" href="#top"><ArrowUpLogo /></a>
+    <a className="go-to-top" href="#top"><ArrowUpLogo /></a>
   </>
 )
 
