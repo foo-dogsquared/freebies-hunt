@@ -1,13 +1,15 @@
 import React, { Component } from "react"
-import CategoryGrid from "./categoryGrid"
 import * as jsSearch from "js-search"
+
+import CategoryGrid from "./categoryGrid"
+
+import "./categoryGridSearchEngine.scss"
 
 class CategorySearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
       search: [],
-      searchList: [],
       searchQuery: ``,
       searchResult: [],
     }
@@ -20,7 +22,6 @@ class CategorySearch extends Component {
     const { search } = this.state;
     const searchQuery = event.target.value;
     const searchQueryResult = search.search(searchQuery);
-    console.log(searchQuery, searchQueryResult);
     this.setState({ searchQuery,  searchResult: searchQueryResult });
   }
 
@@ -48,7 +49,8 @@ class CategorySearch extends Component {
 
     return (
       <section>
-        <input onChange={ this.searchData } value={ searchQuery }/>
+        <small>Search for category</small>
+        <input className="category-search" onChange={ this.searchData } value={ searchQuery } tabIndex="2" autoFocus />
         <CategoryGrid categories={ searchResults }/>
       </section>
     )
