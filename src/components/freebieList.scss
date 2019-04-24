@@ -1,0 +1,32 @@
+.freebies {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.freebie-item {
+    background: white;
+    border-radius: 5px;
+    border: solid currentColor 3px;
+    color: black;
+    line-height: 2em;
+    padding: .5em;
+    margin: 1em auto;
+    position: relative;
+    text-align: center;
+
+    details, summary {display: block;}
+
+    @media only screen and (min-width: 600px) {
+        padding: 2em;
+    }
+}
+
+.personal-comment {
+    &::before {
+        border-top: solid currentColor 3px;
+        content: "";
+        display: block;
+        margin: 2em auto;
+    }
+}
