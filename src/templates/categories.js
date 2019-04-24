@@ -1,6 +1,6 @@
 import React from 'react';
 import SEO from "../components/seo"
-import CategorySearchGrid from "../components/categorySearchEngine";
+import CategorySearchGrid from "../components/categoryGridSearchEngine";
 
 import Layout from "../components/layout"
 
