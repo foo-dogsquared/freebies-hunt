@@ -7,12 +7,19 @@ $border-style: currentColor 2px solid;
     height: 100%;
 }
 
+.category-image {
+    padding: 1em;
+}
+
 .category-card {
     min-height: 2em;
-    width: 250px;
-    margin: 1.5em auto;
+    width: 150px;
+    margin: 1.5em .5em;
     text-align: center;
     border: $border-style;
+
+    @media screen and (min-width: 400px) {width: 200px;}
+    @media screen and (min-width: 600px) {width: 250px;}
 
     .category-icon {
         $size: 7em;
