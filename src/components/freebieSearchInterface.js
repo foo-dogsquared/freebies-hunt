@@ -50,7 +50,7 @@ class FreebieSearchInterface extends Component {
 
     return (
     <section>
-      <small>Search for freebie</small>
+      <small>Quickly search for a freebie</small>
       <input className="freebie-search" onChange={ this.searchData } value={ searchQuery } />
       <FreebieList freebies={ searchResults } />
     </section>

@@ -45,7 +45,7 @@ export default ({ pageContext: { name, category, categories } }) => {
       <summary>Categories index:</summary>
       <section>
         {categorySet.map(category => {
-          if (category === name) return <b>{category}</b>
+          if (category === name) return <b key={category}>{category}</b>
 
           return <Link to={`/${kebabCase(category)}`} key={category}>{category}</Link>
         })}
