@@ -21,7 +21,12 @@ const FreebieList = ({ freebies }) => {
         }
 
         if (item.personalComment) {
-          personalComment = <small className="personal-comment" dangerouslySetInnerHTML={{__html: marked(item.personalComment)}}></small>
+          personalComment = (
+            <details className="personal-comment">
+              <summary>Personal comment:</summary>
+              <p dangerouslySetInnerHTML={{__html: marked(item.personalComment)}}></p>
+            </details>
+          )
         }
 
         return (

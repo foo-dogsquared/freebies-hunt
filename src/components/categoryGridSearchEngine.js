@@ -50,7 +50,7 @@ class CategorySearch extends Component {
     return (
       <section>
         <small>Search for category</small>
-        <input className="category-search" onChange={ this.searchData } value={ searchQuery } tabIndex="2" autoFocus />
+        <input className="category-search" onChange={ this.searchData } value={ searchQuery } tabIndex="2" />
         <CategoryGrid categories={ searchResults }/>
       </section>
     )
