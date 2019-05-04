@@ -40,7 +40,7 @@ const Layout = ({ children, color }) => (
           </p>
           <h2>Got API?</h2>
           <p>
-            If you are looking for an API of this site (for some reason) to get its data, you're in luck! It's available as <a href={config.api.link} target="_blank" rel="noopener noreferrer">an npm package</a>. You could also see the remote repo of it in <a href={config.api.link} target="_blank" rel="noopener noreferrer">this link</a>.
+            If you are looking for an API of this site (for some reason) to get its data, you're in luck! It's available as <a href={config.api.link} target="_blank" rel="noopener noreferrer">an npm package</a>. You could also see the source code of it in <a href={config.api.repo} target="_blank" rel="noopener noreferrer">this remote repo</a>.
           </p>
         </section>
         <UserLinks userLinks={config.socialLinks} />
