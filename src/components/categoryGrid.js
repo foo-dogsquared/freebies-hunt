@@ -13,12 +13,11 @@ const categoryGrid = ({ categories }) => {
 
   categories.sort((current, next) => {
     // color instances
-    const currentCategoryColor = color(current.mainColor);
-    const nextCategoryColor = color(next.mainColor);
-
-    if (currentCategoryColor.hue() > nextCategoryColor.hue()) {
+    const currentName = current.name.toLowerCase()
+    const nextName = next.name.toLowerCase()
+    if (currentName > nextName) {
       return 1;
-    } else if (currentCategoryColor.hue() < nextCategoryColor.hue()) {
+    } else if (currentName < nextName) {
       return -1;
     } else {
       return 0;
