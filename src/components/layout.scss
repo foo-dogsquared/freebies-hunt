@@ -629,6 +629,11 @@ pre tt:after {
   }
 }
 
+input:focus {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
 /* custom classes */
 main {
   padding-top: 4em;
@@ -652,20 +657,6 @@ main {
 .about {
   margin: 2em auto;
   text-align: center;
-}
-
-.elliptical-border {
-  border-top-left-radius: 150px;
-  border-top-right-radius: 150px;
-
-  @media only screen and (min-width: 480px) {
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-  }
-  @media only screen and (min-width: 960px) {
-    border-top-left-radius: 350px;
-    border-top-right-radius: 350px;
-  }
 }
 
 .go-to-top {
