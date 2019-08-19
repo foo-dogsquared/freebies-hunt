@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { generateStyleObject } from "../scripts"
+import { generateColorPallete } from "../scripts"
 
 // importing of the usual configuration
 import config from "../config"
@@ -21,11 +21,21 @@ import "./layout.scss"
 // import of image
 import ArrowUpLogo from "../images/arrow-up.svg"
 
-const Layout = ({ children, color }) => (
-  <>
+const Layout = ({ children, color }) => {
+  const colorPallete = generateColorPallete(color)
+  console.log(colorPallete.color.toString(), colorPallete.darkenedColor.toString(), colorPallete.lightenedColor.toString())
+  const foregroundColor = (colorPallete.color.isLight()) ? "black" : "white"
+  const styleObject = {
+    backgroundImage: `linear-gradient(${colorPallete.color.toString()}, ${colorPallete.darkenedColor.toString()})`,
+    color: foregroundColor,
+    borderTop: `30px dashed black`,
+    borderBottom: `30px dashed black`,
+    paddingBottom: "2em"
+  }
+
+  return (<>
     <Header siteTitle={config.title} />
-    <div className="elliptical-border"
-      style={generateStyleObject(color)}>
+    <div style={styleObject}>
       <div className="content-wrapper">
         <main>{children}</main>
         <section className="about">
@@ -48,8 +58,8 @@ const Layout = ({ children, color }) => (
       </div>
     </div>
     <a className="go-to-top" href="#top"><ArrowUpLogo /></a>
-  </>
-)
+  </>)
+}
 
 Layout.defaultProps = {
   color: config.mainColor

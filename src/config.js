@@ -21,5 +21,5 @@ module.exports = {
       link: "https://choosealicense.com/licenses/gpl-3.0/"
     },
     mainSite: `https://foo-dogsquared.github.io`,
-    mainColor: "#722a13",
+    mainColor: "#d59783",
 }

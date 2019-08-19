@@ -6,6 +6,17 @@ module.exports.kebabCase = (word) => {
   return word.split(whitespace).map(word => word.replace(nonAlphaNumericRegex, "").toLowerCase()).join("-");
 }
 
+module.exports.generateColorPallete = (color, { brightenPercentage = 10, darkenPercentage = 10 } = {}) => {
+  const tinycolorInstance = tinycolor(color);
+  const brightenedColor = tinycolorInstance.clone().brighten(brightenPercentage)
+  const darkenedColor = tinycolorInstance.clone().darken(darkenPercentage)
+  return {
+    "color": tinycolorInstance,
+    "lightenedColor": brightenedColor,
+    "darkenedColor": darkenedColor,
+  }
+}
+
 module.exports.generateStyleObject = (color) => {
   const tinycolorInstance = tinycolor(color);
   const lightenedColor = tinycolorInstance.brighten(20);

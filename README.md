@@ -19,6 +19,7 @@ If you want to contribute through code, just do the following:
 - clone the forked repo (`git clone <GIT_URL_OF_THE_FORKED_REPO>`)
 - go to the project directory
 - install the dependencies (`npm i`)
+- create and checkout in the new branch (`git checkout -b <NAME_OF_NEW_BRANCH>`)
 - open it in your local machine (`npm run develop`)
 
 This is built with [Gatsby](http://gatsbyjs.org/) (and by extension, [React](http://reactjs.org/)) so at least familiarize yourself a bit with those things.

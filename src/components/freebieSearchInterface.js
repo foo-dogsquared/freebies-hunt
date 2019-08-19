@@ -34,6 +34,8 @@ class FreebieSearchInterface extends Component {
     ];
 
     const jsSearchInstance = new jsSearch.Search("name");
+    jsSearchInstance.indexStrategy = new jsSearch.AllSubstringsIndexStrategy()
+
     indexes.forEach(index => jsSearchInstance.addIndex(index));
 
     jsSearchInstance.addDocuments(this.freebies);
