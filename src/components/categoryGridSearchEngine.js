@@ -35,6 +35,8 @@ class CategorySearch extends Component {
     ]
     // setting up the search engine
     const jsSearchInstance = new jsSearch.Search("name");
+    jsSearchInstance.indexStrategy = new jsSearch.AllSubstringsIndexStrategy()
+
     indexes.forEach(index => jsSearchInstance.addIndex(index));
     jsSearchInstance.addDocuments(Object.values(this.categories));
 
