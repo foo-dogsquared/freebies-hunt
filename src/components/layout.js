@@ -30,7 +30,8 @@ const Layout = ({ children, color }) => {
     color: foregroundColor,
     borderTop: `30px dashed black`,
     borderBottom: `30px dashed black`,
-    paddingBottom: "2em"
+    paddingBottom: "2em",
+    backgroundAttachment: "fixed",
   }
 
   return (<>
