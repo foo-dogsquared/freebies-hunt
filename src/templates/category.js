@@ -18,7 +18,7 @@ import "./category.scss";
 
 export default ({ pageContext: { name, category, categories } }) => {
   const recommendedCategories = {};
-  const categorySet = Object.keys(categories);
+  const categorySet = Object.keys(categories).sort();
   while (Object.keys(recommendedCategories).length <= 2) {
     const randomCategory = categorySet[Math.floor(Math.random() * categorySet.length)];
     if (randomCategory === name) continue;
